@@ -1,0 +1,14 @@
+# Maven
+target/
+*.jar
+
+# IntelliJ
+.idea/
+*.iml
+
+# Env / segredos
+.env
+*.env
+
+# Docker volumes
+docker-data/
