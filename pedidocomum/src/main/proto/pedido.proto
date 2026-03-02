@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_package = "br.com.poc.pedidocomum.grpc.proto";
+option java_outer_classname = "EstoqueProto";
+option java_multiple_files = true;
+
+package estoque;
+
+service EstoqueService {
+  rpc ReservarEstoque (ReservaRequest) returns (ReservaResponse);
+}
+
+message ReservaRequest {
+  string produto_id  = 1;
+  int32  quantidade  = 2;
+  string pedido_id   = 3;
+}
+
+message ReservaResponse {
+  bool   sucesso = 1;
+  string mensagem = 2;
+  int32  quantidade_restante = 3;
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+
+    <!--
+        OpenTelemetryAppender: responsável por injetar trace_id e span_id
+        no MDC automaticamente quando o OTel está ativo.
+        Os serviços que incluem este arquivo herdam esse comportamento.
+    -->
+    <appender name="OTEL"
+              class="io.opentelemetry.instrumentation.logback.mdc.v1_0.OpenTelemetryAppender">
+        <captureExperimentalAttributes>false</captureExperimentalAttributes>
+    </appender>
+
+    <!--
+        Console com pattern que inclui:
+        - trace_id e span_id (injetados pelo OTel no MDC)
+        - X-Request-ID (injetado pelo RequestIdFilter no MDC)
+        - nível, logger e mensagem
+    -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%X{trace_id},%X{span_id}] [reqId=%X{X-Request-ID}] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="OTEL"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</included>

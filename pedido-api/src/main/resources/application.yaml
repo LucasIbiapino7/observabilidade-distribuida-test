@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: pedido-api
+  datasource:
+    url: jdbc:h2:mem:pedidodb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: 8080
+
+# Endereços dos outros serviços
+estoque:
+  grpc:
+    host: localhost
+    port: 9001
+
+notificacao:
+  service:
+    url: http://localhost:8082
+
+# OpenTelemetry
+otel:
+  service:
+    name: pedido-api
+  traces:
+    exporter: otlp
+  metrics:
+    exporter: none
+  logs:
+    exporter: none
+  exporter:
+    otlp:
+      endpoint: http://localhost:4318
+      protocol: http/protobuf
+
+logging:
+  level:
+    root: INFO
+    br.com.poc.pedidoapi: DEBUG

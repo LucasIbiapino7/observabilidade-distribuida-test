@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: notificacao-service
+
+server:
+  port: 8082
+
+otel:
+  service:
+    name: notificacao-service
+  traces:
+    exporter: otlp
+  metrics:
+    exporter: none
+  logs:
+    exporter: none
+  exporter:
+    otlp:
+      endpoint: http://localhost:4318
+      protocol: http/protobuf
+
+logging:
+  level:
+    root: INFO
+    br.com.poc.notificacao: DEBUG

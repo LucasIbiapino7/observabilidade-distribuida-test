@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Herda o padrão de log do pedido-comum (trace_id, span_id, X-Request-ID) -->
+    <include resource="logback-base.xml"/>
+
+    <!-- Override de nível por pacote se necessário -->
+    <logger name="br.com.poc.estoque" level="DEBUG"/>
+</configuration>
