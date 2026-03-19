@@ -1,14 +1,11 @@
-package br.com.poc.pedidoapi;
+package br.com.poc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {
-		"br.com.poc.pedidoapi",
-		"br.com.poc.pedidocomum"
-})
+@EnableAsync
 public class PedidoApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PedidoApiApplication.class, args);

@@ -1,4 +1,4 @@
-package br.com.poc.pedidoapi.entity;
+package br.com.poc.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,11 +1,11 @@
-package br.com.poc.pedidoapi.service;
+package br.com.poc.service;
 
-import br.com.poc.pedidoapi.client.EstoqueGrpcClient;
-import br.com.poc.pedidoapi.client.NotificacaoClient;
-import br.com.poc.pedidoapi.dto.CriarPedidoRequest;
-import br.com.poc.pedidoapi.dto.PedidoDTO;
-import br.com.poc.pedidoapi.entity.Pedido;
-import br.com.poc.pedidoapi.repository.PedidoRepository;
+import br.com.poc.client.EstoqueGrpcClient;
+import br.com.poc.client.NotificacaoClient;
+import br.com.poc.dto.CriarPedidoRequest;
+import br.com.poc.dto.PedidoDTO;
+import br.com.poc.entity.Pedido;
+import br.com.poc.repository.PedidoRepository;
 import br.com.poc.pedidocomum.exception.PedidoNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

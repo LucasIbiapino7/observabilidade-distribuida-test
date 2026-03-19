@@ -1,8 +1,8 @@
-package br.com.poc.pedidoapi.controller;
+package br.com.poc.controller;
 
-import br.com.poc.pedidoapi.dto.CriarPedidoRequest;
-import br.com.poc.pedidoapi.dto.PedidoDTO;
-import br.com.poc.pedidoapi.service.PedidoService;
+import br.com.poc.dto.CriarPedidoRequest;
+import br.com.poc.dto.PedidoDTO;
+import br.com.poc.service.PedidoService;
 import br.com.poc.pedidocomum.exception.EstoqueInsuficienteException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

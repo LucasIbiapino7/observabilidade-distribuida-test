@@ -1,4 +1,4 @@
-package br.com.poc.pedidoapi.client;
+package br.com.poc.client;
 
 import br.com.poc.pedidocomum.grpc.GrpcClientInterceptor;
 import br.com.poc.pedidocomum.grpc.proto.EstoqueServiceGrpc;

@@ -1,5 +1,8 @@
 package br.com.poc.pedidocomum.exception;
 
+import br.com.poc.pedidocomum.error.ErrorReportService;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
@@ -22,7 +25,10 @@ import java.util.Map;
  */
 @Slf4j
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class GlobalExceptionHandler {
+
+    private final ErrorReportService errorReportService;
 
     @ExceptionHandler(PedidoNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handlePedidoNotFound(PedidoNotFoundException ex) {
@@ -37,9 +43,10 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, Object>> handleGeneric(Exception ex) {
-        // Aqui sim loga a stacktrace — é um erro inesperado
+    public ResponseEntity<Map<String, Object>> handleGeneric(Exception ex, HttpServletRequest request) {
         log.error("[requestId={}] Erro inesperado: {}", getRequestId(), ex.getMessage(), ex);
+        errorReportService.salvar(ex, request);
+
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(buildBody("Erro interno. Contate o administrador.", 500));
     }

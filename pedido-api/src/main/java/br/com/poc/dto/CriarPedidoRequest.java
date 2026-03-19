@@ -1,4 +1,4 @@
-package br.com.poc.pedidoapi.dto;
+package br.com.poc.dto;
 
 import lombok.Data;
 

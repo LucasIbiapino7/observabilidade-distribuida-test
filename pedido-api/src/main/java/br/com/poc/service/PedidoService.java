@@ -1,7 +1,7 @@
-package br.com.poc.pedidoapi.service;
+package br.com.poc.service;
 
-import br.com.poc.pedidoapi.dto.CriarPedidoRequest;
-import br.com.poc.pedidoapi.dto.PedidoDTO;
+import br.com.poc.dto.CriarPedidoRequest;
+import br.com.poc.dto.PedidoDTO;
 
 import java.util.List;
 
